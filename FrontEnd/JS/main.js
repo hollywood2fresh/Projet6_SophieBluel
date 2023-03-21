@@ -33,6 +33,7 @@ afficherProjet(projets);
 // }
 
 
+
 // fitre Tous
 const boutonFiltrerTous = document.querySelector(".btn-filter-tous")
 

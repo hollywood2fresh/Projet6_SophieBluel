@@ -186,3 +186,29 @@ footer nav ul {
 	margin: 2em
 }
 
+/* btn filtre */
+
+.btn-filter {
+	height: 90px;
+
+	display: flex;
+	justify-content: center;
+}
+
+.btn-filter button {
+	height: 37px;
+	padding: 0px 20px;
+	margin: 0px 5px;
+	border-radius: 20px;
+	background-color: #fff;
+	border: 1px #1D6154 solid;
+	color: #1D6154;
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 16px;
+}
+
+button.btn-filter-selected {
+	color: #FFF;
+	background-color: #1D6154;
+}

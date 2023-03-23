@@ -23,22 +23,24 @@
 	    </nav>
     </header>
     <main>
-        <div class="login">
+        <form id="login">
             <h2>Log In</h2>
             <div class="login-email">
-                <p>E-mail</p>
-                <input type="text">
+                <label for="email">E-mail</label>
+                <input type="e-mail" name="email" id="email">
             </div>
             <div class="login-mdp">
-                <p>Mot de passe</p>
-                <input type="text">
+                <label for="mdp">Mot de passe</label>
+                <input type="password" name="password" id="password">
             </div>
-            <button>Se connecter</button>
+            <input type="submit" value="Se connecter" id="connecter">
             <p>Mot de passe oublié</p>
-        </div>
+        </form>
+        <p id="erreur"></p>
     </main>
     <footer>
         <p>Mentions légales</p>
     </footer>
+    <script src="./JS/login.js" type="module"></script>
 </body>
 </html>

@@ -68,6 +68,7 @@ const btnAjouterPhoto = document.querySelector('.js-ajouter-photo');
 const ajoutModal = document.querySelector('.js-modal-ajout')
 const stopAjoutPro = document.querySelector('.js-modal-ajout-stop')
 const jsCloseTest = document.querySelector('.test')
+const arrowRetour = document.querySelector('.fa-arrow-left')
 
 
 function openModalAjout(e) {
@@ -80,6 +81,7 @@ function openModalAjout(e) {
     ajoutModal.addEventListener('click', closeModalAjout)
     jsCloseTest.addEventListener('click', closeModalAjout)
     stopAjoutPro.addEventListener('click', stopPropagation)
+    arrowRetour.addEventListener('click', closeModalAjout)
     modal.classList.add('modale-display-none')
 }
 
@@ -90,6 +92,7 @@ function closeModalAjout(e) {
     ajoutModal.removeAttribute('aria-modal')
     ajoutModal.removeEventListener('click', closeModalAjout)
     jsCloseTest.removeEventListener('click', closeModalAjout)
+    arrowRetour.addEventListener('click', openModal)
     stopAjoutPro.removeEventListener('click', stopPropagation)
 }
 

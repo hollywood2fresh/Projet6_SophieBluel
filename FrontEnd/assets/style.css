@@ -82,7 +82,8 @@ h2{
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 30px;
-	color: #1D6154
+	color: #1D6154;
+	position: relative;
 }
 nav ul {
 	display: flex;
@@ -211,4 +212,52 @@ footer nav ul {
 button.btn-filter-selected {
 	color: #FFF;
 	background-color: #1D6154;
+}
+
+/* mode édition */
+
+.mode-edition {
+	background-color: #000;
+	height: 59px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.mode-edition p {
+	color: #FFF;
+	margin-right: 21px;
+	font-size: 16px;
+}
+
+.mode-edition p i {
+	color: #FFF;
+	margin-right: 9px;
+}
+
+.publish-changes {
+	background-color: #FFF;
+	width: 216px;
+	height: 38px;
+	border-radius: 60px;
+	border: none;
+	font-size: 14px;
+}
+
+figure figcaption {
+	margin: 15px 0 0 57px;
+}
+
+figure figcaption i, .modif, .modif i {
+	font-size: 15px;
+	margin-right: 10px;
+	font-weight: 400;
+}
+
+.modif {
+	color: #000;
+	font-family: 'Work Sans';
+	position: absolute;
+	left: 681px;
+	top: 8px;
 }

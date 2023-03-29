@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/c2ba6ebecd.js" crossorigin="anonymous"></script>
+    <title>test modale</title>
+    <link rel="stylesheet" href="./testModal-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <button class="button-modif"><span class="modif"><i class="fa-regular fa-pen-to-square"></i>modifier</span></button>
+    
+
+<!-- 
+aria-hidden="true" = élement caché par default
+role="dialog" = cette élement est une boite de dialogue ≠ une boite modale 
+aria-modal="false" = indique que le contenu derrière n'est pas consultable 
+aria-labelledby="title-modale" = permet de définier le titre de la boite de dialogue 
+modale-display-none
+
+ -->
+
+    <aside class="js-modal-galerie-photo modale-display-none" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="title-modale">
+        <div class="modale-wrapper js-modal-stop">
+            <i class="fa-solid fa-xmark"></i>
+            <h1 id="#title-modale">Galerie photo</h1>
+            <div class="container"></div>
+            <span></span>
+            <button class="js-ajouter-photo">Ajouter une photo</button>
+            <p>Supprimer la galerie</p>
+        </div>
+    </aside>
+
+    <aside class="js-modal-ajout modale-display-none" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="title-modale">
+        <div class="modale-wrapper js-modal-ajout-stop">
+            <i class="fa-solid fa-arrow-left"></i>
+            <i class="fa-solid fa-xmark test"></i>
+            <h1 id="#title-modale">Ajout photo</h1>
+            <div class="div-ajout-photo">
+                <i class="fa-regular fa-image"></i>
+                <button class="ajouter-plus-photo">+ Ajoutr photo</button>
+                <span class="taille-max">jpg, png : 4mo max</span>
+            </div>
+            <div class="formulaire">
+                <label for="titre">Titre</label>      
+                <input type="text" name="titre" id="titre">
+                <label for="categorie">Catégorie</label>
+                <input type="text" name="categorie" id="categorie">
+            </div>
+            <span></span>
+            <button class="js-ajouter-photo">Valider</button>
+        </div>
+    </aside>
+    <script src="./testModalJS.js" type="module"></script>
+</body>
+</html>

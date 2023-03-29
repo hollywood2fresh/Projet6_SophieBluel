@@ -2,7 +2,6 @@ const loginForm = document.getElementById('login');
 
 loginForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  console.log('jai clicker');
   let baliseEmail = document.getElementById('email');
   let baliseMotDePasse = document.getElementById('password');
   let email = baliseEmail.value;
@@ -25,9 +24,16 @@ async function login(email, motDePasse) {
     },
     body: JSON.stringify(user)
   }); 
+  console.log(response.ok);
   
   let result = await response.json();
   console.log(result);
+  let erreur = document.getElementById('erreur')
+  if(response.ok === false) {
+    erreur.innerHTML = 'Identifiant ou mot de passe incorrect'
+  } else {
+    window.location.assign('./index-edit.html')
+  }
 }
 
 

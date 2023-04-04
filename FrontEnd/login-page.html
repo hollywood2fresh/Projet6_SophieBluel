@@ -9,6 +9,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/login-style.css">
+    <script src="https://kit.fontawesome.com/c2ba6ebecd.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -26,11 +27,11 @@
         <form id="login">
             <h2>Log In</h2>
             <div class="login-email">
-                <label for="email">E-mail</label>
+                <label for="email" id="label-email">E-mail</label>
                 <input type="e-mail" name="email" id="email">
             </div>
             <div class="login-mdp">
-                <label for="mdp">Mot de passe</label>
+                <label for="mdp" id="label-password">Mot de passe</label>
                 <input type="password" name="password" id="password">
             </div>
             <input type="submit" value="Se connecter" id="connecter">
@@ -41,6 +42,6 @@
     <footer>
         <p>Mentions légales</p>
     </footer>
-    <script src="./JS/login.js" type="module"></script>
+    <script src="./JS/newlogin.js" type="module"></script>
 </body>
 </html>

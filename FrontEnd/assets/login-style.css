@@ -168,3 +168,47 @@ footer p {
 	position: absolute;
 	top: 780px;
 }
+
+.js-errorChampsObligatoire {
+	width: 100%;
+	color: crimson;
+
+	position: relative;
+	bottom: 120px;
+}
+
+.js-errorChampsObligatoire i {
+	margin-right: 7px;
+	font-size: 15px;
+}
+
+.js-errorIncorrecte {
+	width: 100%;
+	border: 1px solid rgb(126, 119, 119);
+	border-radius: 15px;
+	padding: 15px 15px 15px 70px;
+	margin-bottom: 10px;
+	font-size: 1.4em;
+	position: relative;
+}
+
+.js-errorIncorrecte span {
+	font-size: 0.7em;
+	color: rgb(126, 119, 119);
+}
+
+.js-errorIncorrecte i {
+	color: rgba(197, 4, 4, 0.669);
+	font-size: 40px;
+	position: absolute;
+	top: 15px;
+	left: 15px;
+}
+
+.js-errorForm {	
+	color: crimson;
+}
+
+#login input.js-errorForm {
+	border: 2px solid crimson;
+}

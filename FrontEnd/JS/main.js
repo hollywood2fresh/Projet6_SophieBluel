@@ -16,48 +16,64 @@ modal.afficherProjet(projets);
 import DeleteProjet from "./delete.js";
 let aChanger = new DeleteProjet()
 
+import AddProjet from "./add.js";
+let additional = new AddProjet()
 
 
 
-const addProjetsForm = document.querySelector('.js-My-form')
-const token = localStorage.getItem('token')
 
-addProjetsForm.addEventListener('submit', (event) => {
-    event.preventDefault()
-    // select element 
-    let baliseImage = document.getElementById('imageUrl')
-    let baliseTitle = document.getElementById('title')
-    let balisecategory = document.getElementById('category')
-    // select value
-    let image = baliseImage.files[0]
-    console.log(image);
-    let title = baliseTitle.value
-    let category = baliseTitle.value
-    // console.log
-    console.log(image, title, category);
-    addProjets(image, title, category)
-})
 
-async function addProjets(image, title, category) {
-    let myHeaders = new Headers();
-    myHeaders.append("Authorization", `Bearer ${token}`);
+
+// const addProjetsForm = document.querySelector('.js-My-form')
+// const token = localStorage.getItem('token')
+
+// addProjetsForm.addEventListener('submit', (event) => {
+//     event.preventDefault()
+//     // select elements 
+//     let baliseImage = document.getElementById('imageUrl')
+//     let baliseTitle = document.getElementById('title')
+//     let balisecategory = document.getElementById('category')
+//     // select value
+//     let image = baliseImage.files[0]
+//     let title = baliseTitle.value
+//     let category = balisecategory.value
+//     switch(category) {
+//         case 'Objets':
+//             category = '1';
+//         break;
+//         case 'Appartements':
+//             category = '2';
+//         break;
+//         case 'Hotels & restaurants':
+//             category = '3';
+//         break;
+//     }
+//     console.log(category);
+//     // console.log
+//     console.log(image, title, category);
+//     addProjets(image, title, category)
+// })
+
+// async function addProjets(image, title, category) {
+//     let myHeaders = new Headers();
+//     myHeaders.append("Authorization", `Bearer ${token}`);
     
-    let formdata = new FormData();
-    formdata.append("category", '1');
-    formdata.append("title", title);
-    formdata.append("image", image, image.name);
+//     let formdata = new FormData();
+//     formdata.append("category", category);
+//     formdata.append("title", title);
+//     formdata.append("image", image, image.name);
     
-    let requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: formdata,
-      redirect: 'follow'
-    };
+//     let requestOptions = {
+//       method: 'POST',
+//       headers: myHeaders,
+//       body: formdata,
+//       redirect: 'follow'
+//     };
     
-    fetch("http://localhost:5678/api/works", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-}
+//     fetch("http://localhost:5678/api/works", requestOptions)
+//       .then(response => response.text())
+//       .then(result => console.log(result))
+// }
 
 
 

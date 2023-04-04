@@ -12,17 +12,17 @@
     <script src="https://kit.fontawesome.com/c2ba6ebecd.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="mode-edition">
-        <p><i class="fa-regular fa-pen-to-square"></i>Mode édition</p>
-        <button class="publish-changes">publier les changements</button>
-    </div>
+	<div class="mode-edition">
+		<p><i class="fa-regular fa-pen-to-square"></i>Mode édition</p>
+		<button class="publish-changes">publier les changements</button>
+	</div>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 	<nav>
 		<ul>
 			<li>projets</li>
 			<li>contact</li>
-			<li>login</li>
+			<li><a href="./login-page.html">login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -31,9 +31,9 @@
 	<section id="introduction">
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt="">
-            <figcaption>
-                <i class="fa-regular fa-pen-to-square"></i>modifier
-            </figcaption>
+			<figcaption class="fig-edit">
+				<i class="fa-regular fa-pen-to-square"></i>modifier
+			</figcaption> 
 		</figure>
 		<article>
 			<h2>Designer d'espace</h2>
@@ -43,8 +43,16 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets<span class="modif"><i class="fa-regular fa-pen-to-square"></i>modifier</span></h2>
-		<div class="gallery"></div>
+		<h2>Mes Projets<button class="modif button-modif"><i class="fa-regular fa-pen-to-square"></i>modifier</button></h2>
+		<div class="btn-filter">
+			<button class="btn-filter-tous btn-filter-selected">Tous</button>
+			<button class="btn-filter-objets">Objets</button>
+			<button class="btn-filter-appartements">Appartements</button>
+			<button class="btn-filter-hotels-et-restaurants">Hôtels & restaurants</button>
+		</div>
+		<div class="gallery">
+			<!-- JS Gallery -->
+		</div>
 	</section>
 	<section id="contact">
 		<h2>Contact</h2>
@@ -60,7 +68,55 @@
 		</form>
 	</section>
 </main>
+<!-- 
+aria-hidden="true" = élement caché par default
+role="dialog" = cette élement est une boite de dialogue ≠ une boite modale 
+aria-modal="false" = indique que le contenu derrière n'est pas consultable 
+aria-labelledby="title-modale" = permet de définier le titre de la boite de dialogue 
+modale-display-none
 
+ -->
+
+ <aside class="js-modal-galerie-photo modale-display-none" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="title-modale">
+	<div class="modale-wrapper js-modal-stop">
+		<i class="fa-solid fa-xmark"></i>
+		<h1 id="#title-modale">Galerie photo</h1>
+		<div class="container"></div>
+		<span></span>
+		<button class="js-addPicture">Ajouter une photo</button>
+		<p>Supprimer la galerie</p>
+	</div>
+</aside>
+
+<aside class="js-modal-ajout modale-display-none" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="title-modale">
+	<div class="modale-wrapper js-modal-ajout-stop">
+		<i class="fa-solid fa-arrow-left"></i>
+		<i class="fa-solid fa-xmark test"></i>
+		<h1 id="#title-modale">Ajout photo</h1>
+		<form class="js-My-form">
+			<div class="div-ajout-photo">
+				<label for="imageUrl"><i class="fa-regular fa-image"></i></label>
+				<input type="file" id="imageUrl" name="image"></input>
+				<span class="taille-max">jpg, png : 4mo max</span>
+			</div>
+			<div class="formulaire">
+				<label for="title">Titre</label>      
+				<input type="text" name="title" id="title">
+				<label for="category">Catégorie</label>
+				<input type="text" name="category" id="category" list="les-categories">
+				<datalist id="les-categories">
+					<option value="Objets"></option>
+					<option value="Appartements"></option>
+					<option value="Hotels & restaurants"></option>
+				</datalist>
+			</div>
+		
+
+			<span></span>
+			<button type="submit" class="valide">Valider</button>
+		</form>
+	</div>
+</aside>
 <footer>
 	<nav>
 		<ul>

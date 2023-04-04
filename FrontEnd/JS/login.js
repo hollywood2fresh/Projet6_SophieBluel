@@ -24,15 +24,21 @@ async function login(email, motDePasse) {
     },
     body: JSON.stringify(user)
   }); 
-  console.log(response.ok);
+  console.log(response);
   
   let result = await response.json();
+
+
+  console.log(result.userId);
+
   console.log(result);
   let erreur = document.getElementById('erreur')
   if(response.ok === false) {
     erreur.innerHTML = 'Identifiant ou mot de passe incorrect'
   } else {
     window.location.assign('./index-edit.html')
+    localStorage.setItem('token', result.token)
+    localStorage.setItem('userId', result.userId)
   }
 }
 

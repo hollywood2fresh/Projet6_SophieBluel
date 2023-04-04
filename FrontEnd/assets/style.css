@@ -134,7 +134,7 @@ li:hover {
 	grid-row-gap: 20px;
 }
 
-.gallery img {
+.figure-homepage img {
 	width: 100%;
 
 }
@@ -244,11 +244,7 @@ button.btn-filter-selected {
 	font-size: 14px;
 }
 
-figure figcaption {
-	margin: 15px 0 0 57px;
-}
-
-figure figcaption i, .modif, .modif i {
+.figure-homepage figcaption i, .modif, .modif i {
 	font-size: 15px;
 	margin-right: 10px;
 	font-weight: 400;
@@ -260,4 +256,186 @@ figure figcaption i, .modif, .modif i {
 	position: absolute;
 	left: 681px;
 	top: 8px;
+	background-color: #FFF;
+	border: none;
+}
+
+.fig-edit {
+	margin: 15px 0 0 58px;
+}
+
+/* CSS modal */
+
+
+body .modale-display-none {
+    display: none;
+}
+
+aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modale-wrapper {
+    width: 630px;
+    height: 731px;
+    background-color: #FFF;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fa-xmark, .fa-arrow-left {
+    position: absolute;
+    top: 32px;
+}
+
+.fa-xmark {
+    left: 582px;
+}
+
+.fa-arrow-left {
+    left: 21px;
+}
+
+.modale-wrapper h1 {
+    margin: 60px auto 46px;
+    font-family: 'Work Sans';
+    font-size: 26px;
+}
+
+.modale-wrapper span {
+    border: solid #B3B3B3 1px;
+    width: 420px;
+    position: absolute;
+    top: 569px;
+}
+
+.modale-wrapper .js-addPicture, .modale-wrapper .valide {
+    background-color: #1D6154;
+    border: none;
+    border-radius: 60px;
+    width: 237px;
+    height: 36px;
+    color: #FFF;
+    font-family: 'Syne';
+    position: absolute;
+    top: 607px;
+}
+
+.modale-wrapper p {
+    color: #D65353;
+    font-family: 'Syne';
+    font-size: 14px;
+    font-weight: 400px;
+    position: absolute;
+    top: 666px;
+}
+
+.container {
+    width: 420px;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.container figure {
+    margin: 0px;
+    position: relative;
+}
+
+.container img {
+    height: 100px;
+}
+
+.container button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+	background-color: #000;
+	border: none;
+}
+
+.container button i {
+    color: #FFF;
+    border-radius: 2px;
+    font-size: 9px;
+}
+
+.div-ajout-photo {
+    background-color: #E8F1F7;
+    width: 420px;
+    height: 169px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fa-image {
+    color: #B9C5CC;
+    font-size: 46px;
+    margin: 28px auto 21px;
+}
+
+.R2D2 {
+	position: absolute;
+	top: 0;
+}
+
+/* .js-My-form {
+	height: 400px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+} */
+
+#file {
+	/* display: none; */
+    border: none;
+    background-color: #CBD6DC;
+    color: #306685;
+    font-family: 'Work Sans';
+    width: 173px;
+    height: 36px;
+    border-radius: 58px;
+	text-align: center;
+}
+.div-ajout-photo .taille-max {
+    border: none;
+    font-family: 'Work Sans';
+    font-size: 10px;
+    color: #444444;
+    text-align: center;
+    top: 275px;
+}
+
+.formulaire {
+    width: 420px;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.formulaire label {
+    font-family: 'Work Sans';
+    font-size: 14px;
+    font-weight: 500;
+    margin: 21px 0 10px;
+}
+
+.formulaire input {
+    height: 51px;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+    border: none;
 }

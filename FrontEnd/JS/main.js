@@ -2,137 +2,387 @@ const reponse = await fetch('http://localhost:5678/api/works');
 const projets = await reponse.json();
 
 
-function afficherProjet(projets) {
-    for(let i = 0; i < projets.length; i++) {
-        const article = projets[i];
 
-        const imageWorks = document.createElement('img');
-        imageWorks.src = article.imageUrl;
 
-        const textWorks = document.createElement('figcaption');
-        textWorks.innerText = article.title;
 
-        const figure = document.createElement('figure');
+import Filter from "./filter.js";
+let filtre = new Filter(projets);
+filtre.afficherProjet(projets)
 
-        figure.append(imageWorks);
-        figure.append(textWorks);
+import Modal from "./modal.js";
+let modal = new Modal(projets)
+modal.afficherProjet(projets);
 
-        const divGalerie = document.querySelector(".gallery");
+import DeleteProjet from "./delete.js";
+let aChanger = new DeleteProjet()
 
-        divGalerie.append(figure);
-    }
+
+
+
+const addProjetsForm = document.querySelector('.js-My-form')
+const token = localStorage.getItem('token')
+
+addProjetsForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+    // select element 
+    let baliseImage = document.getElementById('imageUrl')
+    let baliseTitle = document.getElementById('title')
+    let balisecategory = document.getElementById('category')
+    // select value
+    let image = baliseImage.files[0]
+    console.log(image);
+    let title = baliseTitle.value
+    let category = baliseTitle.value
+    // console.log
+    console.log(image, title, category);
+    addProjets(image, title, category)
+})
+
+async function addProjets(image, title, category) {
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${token}`);
+    
+    let formdata = new FormData();
+    formdata.append("category", '1');
+    formdata.append("title", title);
+    formdata.append("image", image, image.name);
+    
+    let requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: formdata,
+      redirect: 'follow'
+    };
+    
+    fetch("http://localhost:5678/api/works", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
 }
 
-afficherProjet(projets);
 
-class Filter {
 
-    constructor() {
-        this.allFilter();
-        this.objectFilter();
-        this.appartementFilter();
-        this.hotelRestaurantFilter();
-    }
-
-    allFilter() {
-        const boutonFiltrerTous = document.querySelector(".btn-filter-tous")
-
-        boutonFiltrerTous.addEventListener('click', function() {
-            const projetFilter = projets.filter(function (projet) {
-                return projet.categoryId === 1 || 2 || 3
-            })
-            document.querySelector('.gallery').innerHTML = "";
-            afficherProjet(projetFilter)
-        })
-    }
-    objectFilter() {
-        const boutonFiltrerObjets = document.querySelector(".btn-filter-objets")
-
-        boutonFiltrerObjets.addEventListener('click', function() {
-            const projetFilter = projets.filter(function (projet) {
-                return projet.categoryId === 1
-                
-            })
-            document.querySelector('.gallery').innerHTML = "";
-            afficherProjet(projetFilter)
-        })
-    }
-    appartementFilter() {
-        const boutonFiltrerAppartements = document.querySelector(".btn-filter-appartements")
-
-        boutonFiltrerAppartements.addEventListener('click', function() {
-            const projetFilter = projets.filter(function (projet) {
-                return projet.categoryId === 2
-                
-            })
-            document.querySelector('.gallery').innerHTML = "";
-            afficherProjet(projetFilter)
-        })
-    }
-    hotelRestaurantFilter() {
-        const boutonFiltrerHotelsRestaurants = document.querySelector(".btn-filter-hotels-et-restaurants")
-
-        boutonFiltrerHotelsRestaurants.addEventListener('click', function() {
-            const projetFilter = projets.filter(function (projet) {
-                return projet.categoryId === 3
-                
-            })
-            document.querySelector('.gallery').innerHTML = "";
-            afficherProjet(projetFilter)
-        })
-    }
-}
-
-let filtre = new Filter();
+// const addProjetsForm = document.querySelector('.js-My-form')
+// const token = localStorage.getItem('token')
+// const userId = localStorage.getItem('userId')
 
 
 
-
-
-
-// // fitre Tous
-// const boutonFiltrerTous = document.querySelector(".btn-filter-tous")
-
-// boutonFiltrerTous.addEventListener('click', function() {
-//     const projetFilter = projets.filter(function (projet) {
-//         return projet.categoryId === 1 || 2 || 3
-//     })
-//     document.querySelector('.gallery').innerHTML = "";
-//     afficherProjet(projetFilter)
+// addProjetsForm.addEventListener('submit', (event) => {
+//     event.preventDefault()
+//     // select element 
+//     let baliseImage = document.getElementById('imageUrl')
+//     let baliseTitle = document.getElementById('title')
+//     let balisecategory = document.getElementById('category')
+//     // select value
+//     let image = baliseImage.files[0]
+//     console.log(image);
+//     let title = baliseTitle.value
+//     let category = baliseTitle.value
+//     // console.log
+//     console.log(image, title, category);
+//     addProjets(image, title, category)
 // })
 
-// // filtre object
-// const boutonFiltrerObjets = document.querySelector(".btn-filter-objets")
+// async function addProjets(image, title, category) {
+//     // let form = {
+//     //     title: title,
+//     //     image: image,
+//     //     category: category,
+//     // }
+//     const formData = new FormData()
+//     formData.append('category', category)
+//     formData.append('title', title)
+//     formData.append('image', image, image.name)
+//     // console.log(form);
+//     console.log(formData);
+//     for (const [key, value] of formData.entries()) {
+//         console.log(key, value);
+//       }
+//     let addreponse = await fetch('http://localhost:5678/api/works', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'multipart/form-data; boundary=---------------------------123456789012345678901234567890',
+//             'Authorization': `bearer ${token}`
+//         },
+//         body: formData
+//     })
+//     console.log(addreponse);
+//     // const config = {
+//     //     headers: {
+//     //       'Content-Type': 'multipart/form-data',
+//     //       Authorization: `bearer ${token}`,
+//     //     },
+//     //   };
+    
+//     //   try {
+//     //     const response = await axios.post('http://localhost:5678/api/works', formData, config);
+//     //     console.log(response.data);
+//     //   } catch (error) {
+//     //     console.error(error);
+//     //   }
+//     let addresult = await addreponse.json()
 
-// boutonFiltrerObjets.addEventListener('click', function() {
-//     const projetFilter = projets.filter(function (projet) {
-//         return projet.categoryId === 1
+//     console.log(addresult);
+// }
+
+// --------------------------------------------
+
+
+
+// const addProjetsForm = document.querySelector('.js-My-form')
+// const token = localStorage.getItem('token')
+// // const userId = localStorage.getItem('userId')
+
+
+
+// addProjetsForm.addEventListener('submit', (event) => {
+//     event.preventDefault()
+//     // select element 
+//     const formData = new FormData(addProjetsForm)
+
+//     const res = Object.fromEntries(formData);  
+
+//     for(let item of formData) {
+//         console.log(item[0], item[1]);
+//     }
+//     addProjets(res)
+// })
+
+// async function addProjets(res) {
+//     let addreponse = await fetch('http://localhost:5678/api/works', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'multipart/form-data; boundary=---------------------------123456789012345678901234567890',
+//             'Authorization': `bearer ${token}`
+//         },
+//         body: JSON.stringify(res)
+//     })
+//     console.log(addreponse);
+
+//     let addresult = await addreponse.json()
+
+//     console.log(addresult);
+// }
+
+
+
+// --------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const addProjetsForm = document.querySelector('.js-My-form')
+// const token = localStorage.getItem('token')
+
+// addProjetsForm.addEventListener('submit', (event) => {
+//     event.preventDefault()
+
+//     const formData = new FormData(addProjetsForm)
+
+//     const res = Object.fromEntries(formData);  
+//     const payload = JSON.stringify(res)  
+
+//     for(let item of formData) {
+//         console.log(item[0], item[1]);
+//     }
+
+//     let addreponse = await fetch('http://localhost:5678/api/works', {
+//     method: 'POST',
+//     headers: {
+//         'Content-Type': 'multipart/form-data',
+//         'Authorization': `bearer ${token}`
+//     },
+//     body: payload
+//     })
+    
+//     let addresult = await addreponse.json()
+
+//     console.log(addresult);
+// })
+
+
+
+
+
+
+//     const formData = new FormData(addProjetsForm)
+
+//     for(let item of formData) {
+//         console.log(item[0], item[1]);
+//     }
+
+//     let addreponse = await fetch('http://localhost:5678/api/works', {
+//     method: 'POST',
+//     headers: {
+//         'Content-Type': 'multipart/form-data',
+//         'Authorization': `bearer ${token}`
+//     },
+//     body: payload
+//     })
+    
+//     let addresult = await addreponse.json()
+
+//     console.log(addresult);
+// })
+
+
+
+
+
+
+
+
+
+
+// const form = document.querySelector('.js-My-form')
+// const token = localStorage.getItem('token')
+
+
+
+// form.addEventListener('submit', (e) => {
+//     e.preventDefault()
+
+//     const formData = new FormData(form)
+
+//     for(let item of formData) {
+//         console.log(item[0], item[1]);
+//     }
+
+//     async function addProjet() {
+//         const reponse = await fetch('http://localhost:5678/api/works', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'multipart/form-data',
+//                 'Authorization': `bearer ${token}`
+//             },
+//             body: JSON.stringify(form)
+//         })
         
-//     })
-//     document.querySelector('.gallery').innerHTML = "";
-//     afficherProjet(projetFilter)
+//         let result = await reponse.json()
+//     }
+    
+//     addProjet()
 // })
 
-// // filtre appartement 
-// const boutonFiltrerAppartements = document.querySelector(".btn-filter-appartements")
+// console.log(form);
 
-// boutonFiltrerAppartements.addEventListener('click', function() {
-//     const projetFilter = projets.filter(function (projet) {
-//         return projet.categoryId === 2
-        
+
+
+
+// const form = document.querySelector('.js-My-form')
+
+// form.addEventListener('submit', (e) => {
+//     e.preventDefault()
+
+//     const formData = new FormData(form)
+
+//     const res = Object.fromEntries(formData);
+//     const payload = JSON.stringify(res)
+//     console.log(payload);
+
+//     for(let item of formData) {
+//         console.log(item[0], item[1]);
+//     }
+
+//     fetch('http://localhost:5678/api/works', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: payload
 //     })
-//     document.querySelector('.gallery').innerHTML = "";
-//     afficherProjet(projetFilter)
+//         .then(res => res.json())
+//         .then(res => console.log(res));
 // })
 
-// // filtre hotels et restaurants
-// const boutonFiltrerHotelsRestaurants = document.querySelector(".btn-filter-hotels-et-restaurants")
 
-// boutonFiltrerHotelsRestaurants.addEventListener('click', function() {
-//     const projetFilter = projets.filter(function (projet) {
-//         return projet.categoryId === 3
-        
+// let buttons = document.querySelectorAll('.container button')
+// const token = localStorage.getItem('token')
+
+// buttons.forEach((button) => 
+//     button.addEventListener('click', () => {
+//         let id = button.id
+//         console.log(id);
+//         deleteProjet(id)
 //     })
-//     document.querySelector('.gallery').innerHTML = "";
-//     afficherProjet(projetFilter)
-// })
+// )
+
+// async function deleteProjet(id) {
+//     const response = await fetch(`http://localhost:5678/api/works/${id}`, {
+//         method: 'DELETE',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Authorization': `bearer ${token}`
+//         },
+//         body: JSON.stringify(buttons)
+//     });
+    
+//     const data = await response.json()
+//     console.log(data);
+// }
+
+
+
+
+// let supprimerProjet = document.querySelectorAll('.fa-trash-can')
+// let index = 0
+
+
+
+// for(let i = 0; i < supprimerProjet.length - 1; i++) {
+//     console.log(`boucle for ${i}`);
+//     supprimerProjet[index].addEventListener('click', () => {
+//         console.log(`addEventListener ${index}`);
+//     })
+//     index++
+// }
+
+
+
+// console.log(supprimerProjet);
+
+
+
+// async function deleteProjet() {
+//     let supprimerProjet = document.querySelectorAll('.fa-trash-can')
+//     console.log(supprimerProjet);
+//     let response = await fetch(`http://localhost:5678/api/works/{id}`, {
+//         method: 'DELETE'
+//     })
+
+//     let resultat = await response.json()
+
+//     console.log();
+// }
+
+
+
+
+
+
+// deleteProjet()
+
+

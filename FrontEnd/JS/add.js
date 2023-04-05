@@ -7,6 +7,18 @@ export default class AddProjet {
         this.baliseImage = document.getElementById('imageUrl')
         this.baliseTitle = document.getElementById('title')
         this.balisecategory = document.getElementById('category')
+        this.labelTitle = document.getElementById('label-title')
+        this.labelCategory = document.getElementById('label-category')
+        // Création balises error 
+        this.errorChampsObligatoire = document.createElement('p')
+        this.addProjetsForm.append(this.errorChampsObligatoire)
+        // this.labelTitle.classList.add('js-errorForm')
+        // this.baliseTitle.classList.add('js-errorForm')
+        // this.labelCategory.classList.add('js-errorForm')
+        // this.balisecategory.classList.add('js-errorForm')
+        // this.errorChampsObligatoire.classList.add('js-errorChampsObligatoire')
+        // this.errorChampsObligatoire.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i>Tous les champs sont obligatoires.'
+
 
         this.addEventListener()
     }
@@ -39,18 +51,58 @@ export default class AddProjet {
         let formdata = new FormData();
         formdata.append("category", category);
         formdata.append("title", title);
-        formdata.append("image", image, image.name);
+        formdata.append("image", image);
         
-        let requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: formdata,
-        redirect: 'follow'
-        };
-        
-        fetch("http://localhost:5678/api/works", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
+        if(image === undefined || title === '' || category === '') {
+            if(image === undefined) {
+                this.errorChampsObligatoire.classList.add('js-errorChampsObligatoire')
+                this.errorChampsObligatoire.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i>Tous les champs sont obligatoires.'
+                // addEventListener('click', () => {
+                //     this.errorChampsObligatoire.classList.remove('js-errorChampsObligatoire')
+                //     this.errorChampsObligatoire.innerHTML = ''
+                // })
+            }
+            if(title === '') {
+                this.labelTitle.classList.add('js-errorForm')
+                this.baliseTitle.classList.add('js-errorForm')
+                this.errorChampsObligatoire.classList.add('js-errorChampsObligatoire')
+                this.errorChampsObligatoire.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i>Tous les champs sont obligatoires.'
+                // addEventListener('click', () => {
+                //     this.labelTitle.classList.remove('js-errorForm')
+                //     this.baliseTitle.classList.remove('js-errorForm')
+                //     this.errorChampsObligatoire.classList.remove('js-errorChampsObligatoire')
+                //     this.errorChampsObligatoire.innerHTML = ''
+                // })
+            }
+            if(category === '') {
+                this.labelCategory.classList.add('js-errorForm')
+                this.balisecategory.classList.add('js-errorForm')
+                this.errorChampsObligatoire.classList.add('js-errorChampsObligatoire')
+                this.errorChampsObligatoire.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i>Tous les champs sont obligatoires.'
+                // addEventListener('click', () => {
+                //     this.labelCategory.classList.remove('js-errorForm')
+                //     this.balisecategory.classList.remove('js-errorForm')
+                //     this.errorChampsObligatoire.classList.remove('js-errorChampsObligatoire')
+                //     this.errorChampsObligatoire.innerHTML = ''
+                // })
+            }
+        } else {
+            let requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: formdata,
+            redirect: 'follow'
+            };
+            
+            fetch("http://localhost:5678/api/works", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+        }
+
+
+        console.log(image);
+
+
     }
 
 }

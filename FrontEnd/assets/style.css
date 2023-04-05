@@ -332,7 +332,7 @@ aside {
 	left: 195.5px;
 }
 
-.modale-wrapper p {
+.modale-wrapper p:not(.js-errorChampsObligatoire) {
     color: #D65353;
     font-family: 'Syne';
     font-size: 14px;
@@ -439,4 +439,24 @@ aside {
     height: 51px;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
     border: none;
+}
+
+/* error modale form */
+
+.js-errorChampsObligatoire {
+	width: 100%;
+	color: crimson;
+}
+
+.js-errorChampsObligatoire i {
+	margin-right: 7px;
+	font-size: 15px;
+}
+
+.js-errorForm {	
+	color: crimson;
+}
+
+.js-My-form input.js-errorForm {
+	border: 2px solid crimson;
 }

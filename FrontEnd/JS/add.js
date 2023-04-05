@@ -54,38 +54,9 @@ export default class AddProjet {
         formdata.append("image", image);
         
         if(image === undefined || title === '' || category === '') {
-            if(image === undefined) {
                 this.errorChampsObligatoire.classList.add('js-errorChampsObligatoire')
                 this.errorChampsObligatoire.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i>Tous les champs sont obligatoires.'
-                // addEventListener('click', () => {
-                //     this.errorChampsObligatoire.classList.remove('js-errorChampsObligatoire')
-                //     this.errorChampsObligatoire.innerHTML = ''
-                // })
-            }
-            if(title === '') {
-                this.labelTitle.classList.add('js-errorForm')
-                this.baliseTitle.classList.add('js-errorForm')
-                this.errorChampsObligatoire.classList.add('js-errorChampsObligatoire')
-                this.errorChampsObligatoire.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i>Tous les champs sont obligatoires.'
-                // addEventListener('click', () => {
-                //     this.labelTitle.classList.remove('js-errorForm')
-                //     this.baliseTitle.classList.remove('js-errorForm')
-                //     this.errorChampsObligatoire.classList.remove('js-errorChampsObligatoire')
-                //     this.errorChampsObligatoire.innerHTML = ''
-                // })
-            }
-            if(category === '') {
-                this.labelCategory.classList.add('js-errorForm')
-                this.balisecategory.classList.add('js-errorForm')
-                this.errorChampsObligatoire.classList.add('js-errorChampsObligatoire')
-                this.errorChampsObligatoire.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i>Tous les champs sont obligatoires.'
-                // addEventListener('click', () => {
-                //     this.labelCategory.classList.remove('js-errorForm')
-                //     this.balisecategory.classList.remove('js-errorForm')
-                //     this.errorChampsObligatoire.classList.remove('js-errorChampsObligatoire')
-                //     this.errorChampsObligatoire.innerHTML = ''
-                // })
-            }
+
         } else {
             let requestOptions = {
             method: 'POST',

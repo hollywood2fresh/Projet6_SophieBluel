@@ -332,6 +332,10 @@ aside {
 	left: 195.5px;
 }
 
+.js-modal-ajout .modale-wrapper .ok {
+	background-color: #A7A7A7;
+}
+
 .modale-wrapper p:not(.js-errorChampsObligatoire) {
     color: #D65353;
     font-family: 'Syne';

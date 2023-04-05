@@ -9,6 +9,7 @@ export default class AddProjet {
         this.balisecategory = document.getElementById('category')
         this.labelTitle = document.getElementById('label-title')
         this.labelCategory = document.getElementById('label-category')
+        this.btnValide = document.querySelector('.ok')
         // Création balises error 
         this.errorChampsObligatoire = document.createElement('p')
         this.addProjetsForm.append(this.errorChampsObligatoire)
@@ -21,6 +22,7 @@ export default class AddProjet {
 
 
         this.addEventListener()
+        this.addEventListenerInput(imageUrl, title, category)
     }
 
     addEventListener() {
@@ -44,6 +46,21 @@ export default class AddProjet {
         })
     }
 
+    addEventListenerInput(imageUrl, title, category) {
+        this.addProjetsForm.addEventListener('input', () => {
+            if(imageUrl.value != '' && title.value != '' && category.value != '') {
+                this.btnValide.classList.remove('ok')
+                console.log('test123');
+            }
+        })
+        this.addProjetsForm.addEventListener('input', () => {
+            if(imageUrl.value === '' || title.value === '' || category.value === '') {
+                this.btnValide.classList.add('ok')
+                console.log('test123');
+            }
+        })
+    }
+
     async addProjets(image, title, category) {
         let myHeaders = new Headers();
         myHeaders.append("Authorization", `Bearer ${this.token}`);
@@ -56,7 +73,6 @@ export default class AddProjet {
         if(image === undefined || title === '' || category === '') {
                 this.errorChampsObligatoire.classList.add('js-errorChampsObligatoire')
                 this.errorChampsObligatoire.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i>Tous les champs sont obligatoires.'
-
         } else {
             let requestOptions = {
             method: 'POST',
@@ -69,11 +85,6 @@ export default class AddProjet {
             .then(response => response.text())
             .then(result => console.log(result))
         }
-
-
-        console.log(image);
-
-
     }
 
 }

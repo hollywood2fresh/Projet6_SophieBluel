@@ -128,4 +128,6 @@ export default class Modal {
         this.addPictureModalStopPropagation.removeEventListener('click', this.stopPropagation)
 
     }
+
+    
 }

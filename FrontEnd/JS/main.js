@@ -1,6 +1,9 @@
 const reponse = await fetch('http://localhost:5678/api/works');
 const projets = await reponse.json();
 
+const reponseCategorie = await fetch('http://localhost:5678/api/categories');
+const categorie = await reponseCategorie.json();
+// /categories
 
 
 
@@ -17,7 +20,7 @@ import DeleteProjet from "./delete.js";
 let aChanger = new DeleteProjet()
 
 import AddProjet from "./add.js";
-let additional = new AddProjet()
+let additional = new AddProjet(categorie)
 
 
 

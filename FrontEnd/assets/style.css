@@ -96,7 +96,7 @@ nav li {
 	font-size: 1.2em;
 }
 
-li:hover {
+li:hover:not(.js-selectCategory) {
 	color: #B1663C;
 }
 #introduction {
@@ -443,6 +443,35 @@ aside {
     height: 51px;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
     border: none;
+}
+
+.fa-sort-down {
+	color: #000;
+	font-size: 20px;
+
+	position: absolute;
+	bottom: 233px;
+	right: 130px;
+}
+
+.js-selectCategory {
+	background-color: #ffffff;
+	font-size: 17px;
+	width: 230px;
+	padding: 7px;
+	/* border: #d1d1d1 1px solid; */
+
+	box-shadow: 2px 8px 14px rgba(0, 0, 0, 0.3);
+}
+
+.testtest {
+	position: absolute;
+	bottom: 110px;
+	right: 120px;
+}
+
+.js-selectCategory-none {
+	display: none;
 }
 
 /* error modale form */

@@ -53,6 +53,12 @@ body {
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 }
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
 header {
 	display: flex;
 	justify-content: space-between;
@@ -492,4 +498,27 @@ aside {
 
 .js-My-form input.js-errorForm {
 	border: 2px solid crimson;
+}
+
+/* erreur 404 */
+
+.error404 {
+	width: 100%;
+	height: 100px;
+	background-color: #1D6154;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.error404 p:nth-child(1) {
+
+}
+
+.error404 p:nth-child(2) {
+
+}
+
+.error404 p:nth-child(3) {
+
 }

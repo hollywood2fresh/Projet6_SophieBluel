@@ -1,35 +1,40 @@
 import { fetchJSON } from "./api.js";
 
 import Filter from "./filter.js";
-
 import Modal from "./modal.js";
+import DeleteProjet from "./delete.js";
+import AddProjet from "./add.js";
 
 const categorie = await fetchJSON('http://localhost:5678/api/categories')
 
-import DeleteProjet from "./delete.js";
+try {
+const projets = await fetchJSON('http://localhost:5678/api/works')
+// Filter
+let filtre = new Filter(projets);
+filtre.afficherProjet(projets)
+// Modal
+let modal = new Modal(projets)
+modal.afficherProjet(projets);
+// Delete projets
 let aChanger = new DeleteProjet()
-
-import AddProjet from "./add.js";
+// Add projets
 let additional = new AddProjet(categorie)
 
-try {
-    const projets = await fetchJSON('http://localhost:5678/ai/works')
-    // Filter
-    let filtre = new Filter(projets);
-    filtre.afficherProjet(projets)
-    // Modal
-    let modal = new Modal(projets)
-    modal.afficherProjet(projets);
 } catch (error) {
+    console.log('tezst');
     const gallery = document.querySelector('.gallery')
-    gallery.classList.add('error404')
-    gallery.innerHTML =
+    const divError = document.createElement('div')
+    gallery.append(divError)
+    divError.classList.add('error404')
+    divError.innerHTML =
     `
+    <i class="fa-solid fa-circle-exclamation"></i>
     <p>Oops!</p>
     <p>Error 404</p>
     <p>Impossible de charger la galerie</p>
     `
 }
+
 
 
 

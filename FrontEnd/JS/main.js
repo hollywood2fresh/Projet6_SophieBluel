@@ -1,6 +1,6 @@
 import { fetchJSON } from "./api.js";
 
-import Filter from "./filter.js";
+import GalleryProjetAndFilter from "./filter.js";
 import Modal from "./modal.js";
 import DeleteProjet from "./delete.js";
 import AddProjet from "./add.js";
@@ -10,7 +10,7 @@ const categorie = await fetchJSON('http://localhost:5678/api/categories')
 try {
 const projets = await fetchJSON('http://localhost:5678/api/works')
 // Filter
-let filtre = new Filter(projets);
+let filtre = new GalleryProjetAndFilter(projets);
 filtre.afficherProjet(projets)
 // Modal
 let modal = new Modal(projets)

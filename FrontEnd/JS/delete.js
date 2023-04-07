@@ -6,16 +6,22 @@ export default class DeleteProjet {
         this.seekId()
     }
 
+    /**
+     * Provide select id in terms of project id 
+     */
     seekId() {
         this.buttons.forEach((button) => 
             button.addEventListener('click', () => {
                 let id = button.id
-                console.log(id);
                 this.deleteProjet(id)
             })
         )
     }
 
+/**
+ * Provide delete projets of API
+ * @param {number} id id projet
+ */
     async deleteProjet(id) {
         const response = await fetch(`http://localhost:5678/api/works/${id}`, {
             method: 'DELETE',
@@ -27,7 +33,5 @@ export default class DeleteProjet {
         });
         
         const data = await response.json()
-        console.log(data);
     }
-
 }

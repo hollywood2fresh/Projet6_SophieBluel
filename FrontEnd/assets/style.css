@@ -398,20 +398,7 @@ aside {
     margin: 28px auto 21px;
 }
 
-.R2D2 {
-	position: absolute;
-	top: 0;
-}
-
-/* .js-My-form {
-	height: 400px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-} */
-
 #file {
-	/* display: none; */
     border: none;
     background-color: #CBD6DC;
     color: #306685;
@@ -465,7 +452,6 @@ aside {
 	font-size: 17px;
 	width: 230px;
 	padding: 7px;
-	/* border: #d1d1d1 1px solid; */
 
 	box-shadow: 2px 8px 14px rgba(0, 0, 0, 0.3);
 }
@@ -540,7 +526,3 @@ aside {
 	color: rgba(197, 4, 4, 0.669);
 
 }
-
-/* .error404 p:nth-child(4) {
-
-} */

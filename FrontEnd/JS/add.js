@@ -17,17 +17,17 @@ export default class AddProjet {
         // Création choix catégorie 
         this.sortDown = document.querySelector('.fa-sort-down')
         this.ul = document.createElement('ul')
-        // console.log(this.addPictureModal);
 
         this.addEventListener()
         this.addEventListenerInput(imageUrl, title, category)
         this.selectedCategory()
         this.pressSortDown()
         this.clickSelectedCategoru()
-
-        // console.log(this.categorie[0].name);
     }
 
+    /**
+     * Provide to collect data form and call addProjet function 
+     */
     addEventListener() {
         this.addProjetsForm.addEventListener('submit', (event) => {
             event.preventDefault()
@@ -49,85 +49,15 @@ export default class AddProjet {
         })
     }
 
-    addEventListenerInput(imageUrl, title, category) {
-        this.addProjetsForm.addEventListener('input', () => {
-            if(imageUrl.value != '' && title.value != '' && category.value != '') {
-                this.btnValide.classList.remove('ok')
-                console.log('test123');
-            }
-        })
-        this.addProjetsForm.addEventListener('input', () => {
-            if(imageUrl.value === '' || title.value === '' || category.value === '') {
-                this.btnValide.classList.add('ok')
-                console.log('test123');
-            }
-        })
-    }
-
-    selectedCategory() {
-        this.addProjetsForm.append(this.ul)
-        this.ul.classList.add('testtest')
-        this.ul.classList.add('js-selectCategory-none')
-        for(let i = 0; i < this.categorie.length; i++) {
-            const li = document.createElement('li')
-            li.classList.add(`js-selectCategory`)
-            li.classList.add(`js-selectCategory${i}`)
-            this.ul.append(li) 
-            const theCategory = this.categorie[i].name
-            li.append(theCategory)
-            // console.log(li);
-        }
-    }
-
-
-    pressSortDown() {
-        this.sortDown.addEventListener('click', (event) => {
-            this.openSelectedCategory(event)
-            console.log('presse open modal');
-        })
-    }
-
-    // stopPropagation(event) {
-    //     event.stopPropagation()
-    // }
-
-    openSelectedCategory(event) {
-        console.log('open modal');
-        event.preventDefault()
-        this.ul.classList.remove('js-selectCategory-none')
-        // EventListener
-        // this.categoryModal.addEventListener('click', () => {
-        //     console.log('close modal');
-        //     this.closeSelectedCategory(event)
-        // })
-        // this.ul.addEventListener('click', this.stopPropagation)
-    }
-
-    clickSelectedCategoru() {
-        const liObjets = document.querySelector('.js-selectCategory0')
-        const liAppartements = document.querySelector('.js-selectCategory1')
-        const liHotelsEtRestaurants = document.querySelector('.js-selectCategory2')
-
-
-        liObjets.addEventListener('click', () => {
-            this.balisecategory.value = 'Objets'
-            this.closeSelectedCategory()
-        })
-        liAppartements.addEventListener('click', () => {
-            this.balisecategory.value = 'Appartements'
-            this.closeSelectedCategory()
-        })
-        liHotelsEtRestaurants.addEventListener('click', () => {
-            this.balisecategory.value = 'Hotels & restaurants'
-            this.closeSelectedCategory()
-        })
-    }
-
-    closeSelectedCategory() {
-        console.log('close categorue');
-        this.ul.classList.add('js-selectCategory-none')
-    }
-
+    /**
+     * Take data to form for create a new projet
+     * 
+     * @param {files} image 
+     * @param {string} title 
+     * @param {number} category string is transform of number 
+     * 
+     * he's possible send data only if all fields are filled
+     */
     async addProjets(image, title, category) {
         let myHeaders = new Headers();
         myHeaders.append("Authorization", `Bearer ${this.token}`);
@@ -154,4 +84,80 @@ export default class AddProjet {
         }
     }
 
+    /**
+     * Provide know if all fields are filled
+     * 
+     * @param {files} imageUrl 
+     * @param {string} title 
+     * @param {number} category string is transform of number
+     */
+    addEventListenerInput(imageUrl, title, category) {
+        this.addProjetsForm.addEventListener('input', () => {
+            if(imageUrl.value != '' && title.value != '' && category.value != '') {
+                this.btnValide.classList.remove('ok')
+            }
+        })
+        this.addProjetsForm.addEventListener('input', () => {
+            if(imageUrl.value === '' || title.value === '' || category.value === '') {
+                this.btnValide.classList.add('ok')
+            }
+        })
+    }
+
+    /**
+     * Create one li per category for the choise category
+     */
+    selectedCategory() {
+        this.addProjetsForm.append(this.ul)
+        this.ul.classList.add('testtest')
+        this.ul.classList.add('js-selectCategory-none')
+        for(let i = 0; i < this.categorie.length; i++) {
+            const li = document.createElement('li')
+            li.classList.add(`js-selectCategory`)
+            li.classList.add(`js-selectCategory${i}`)
+            this.ul.append(li) 
+            const theCategory = this.categorie[i].name
+            li.append(theCategory)
+        }
+    }
+
+    /**
+     * When click in arrow, call openSelectedCategory function 
+     */
+    pressSortDown() {
+        this.sortDown.addEventListener('click', (event) => {
+            this.openSelectedCategory(event)
+        })
+    }
+
+    openSelectedCategory(event) {
+        event.preventDefault()
+        this.ul.classList.remove('js-selectCategory-none')
+    }
+
+    /**
+     * Privide to take choise in input 
+     */
+    clickSelectedCategoru() {
+        const liObjets = document.querySelector('.js-selectCategory0')
+        const liAppartements = document.querySelector('.js-selectCategory1')
+        const liHotelsEtRestaurants = document.querySelector('.js-selectCategory2')
+
+        liObjets.addEventListener('click', () => {
+            this.balisecategory.value = 'Objets'
+            this.closeSelectedCategory()
+        })
+        liAppartements.addEventListener('click', () => {
+            this.balisecategory.value = 'Appartements'
+            this.closeSelectedCategory()
+        })
+        liHotelsEtRestaurants.addEventListener('click', () => {
+            this.balisecategory.value = 'Hotels & restaurants'
+            this.closeSelectedCategory()
+        })
+    }
+
+    closeSelectedCategory() {
+        this.ul.classList.add('js-selectCategory-none')
+    }
 }

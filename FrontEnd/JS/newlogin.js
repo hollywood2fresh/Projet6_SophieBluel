@@ -16,6 +16,9 @@ export default class Login {
         this.addEventListener()
     }
 
+    /**
+     * When click on submit button, take datas of form and send in the login function
+     */
     addEventListener() {
         this.loginForm.addEventListener('submit', (event) => {
             event.preventDefault()
@@ -25,8 +28,16 @@ export default class Login {
         })
     }
 
+    /**
+     * Send datas in API and if reponse it's ok, give token 
+     * 
+     * @param {string} email 
+     * @param {string} motDePasse 
+     * 
+     * If datas is undefined -> error message 
+     * BUT datas ok -> token is save in localStorage
+     */
     async login(email, motDePasse) {
-
         let user = {
             email: email,
             password: motDePasse
@@ -37,11 +48,11 @@ export default class Login {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify(user)
-        }); 
+        })
           
-        let result = await response.json();
+        let result = await response.json()
 
-            // Ajout au formulaire 
+        // Ajout au formulaire 
         this.loginForm.append(this.errorChampsObligatoire)
         this.loginForm.prepend(this.errorIncorrecte)
 

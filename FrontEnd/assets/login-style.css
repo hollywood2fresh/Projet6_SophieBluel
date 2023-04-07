@@ -162,13 +162,6 @@ footer p {
     right: 150px;
 }
 
-#erreur {
-	color: red;
-	font-size: 20px;
-	position: absolute;
-	top: 780px;
-}
-
 .js-errorChampsObligatoire {
 	width: 100%;
 	color: crimson;

@@ -68,7 +68,10 @@
 		</form>
 	</section>
 </main>
+
 <!-- 
+MODAL
+
 aria-hidden="true" = élement caché par default
 role="dialog" = cette élement est une boite de dialogue ≠ une boite modale 
 aria-modal="false" = indique que le contenu derrière n'est pas consultable 
@@ -91,7 +94,7 @@ modale-display-none
 <aside class="js-modal-ajout modale-display-none" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="title-modale">
 	<div class="modale-wrapper js-modal-ajout-stop">
 		<i class="fa-solid fa-arrow-left"></i>
-		<i class="fa-solid fa-xmark test"></i>
+		<i class="fa-solid fa-xmark js-closeModal"></i>
 		<h1 id="#title-modale">Ajout photo</h1>
 		<form class="js-My-form">
 			<div class="div-ajout-photo">
@@ -103,16 +106,9 @@ modale-display-none
 				<label for="title" id="label-title">Titre</label>      
 				<input type="text" name="title" id="title">
 				<label for="category" id="label-category">Catégorie</label>
-				<input type="text" name="category" id="category" list="les-categories" placeholder="Sélectionner la catégorie" disabled/>
+				<input type="text" name="category" id="category" placeholder="Sélectionner la catégorie" disabled/>
 				<i class="fa-solid fa-sort-down"></i>
-				<datalist id="les-categories">
-					<option value="Objets"></option>
-					<option value="Appartements"></option>
-					<option value="Hotels & restaurants"></option>
-				</datalist>
 			</div>
-		
-
 			<span></span>
 			<button type="submit" class="valide ok">Valider</button>
 		</form>

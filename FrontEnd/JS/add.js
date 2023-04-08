@@ -17,12 +17,16 @@ export default class AddProjet {
         // Create choise of categories  
         this.sortDown = document.querySelector('.fa-sort-down')
         this.ul = document.createElement('ul')
+        this.choiseCategoryInput = false
+        this.imageAndTitleInput = false
+
 
         this.addEventListener()
-        this.addEventListenerInput(imageUrl, title, category)
+        this.addEventListenerInput(imageUrl, title)
         this.selectedCategory()
         this.pressSortDown()
         this.clickSelectedCategoru()
+        this.validationInput()
     }
 
     /**
@@ -91,17 +95,32 @@ export default class AddProjet {
      * @param {string} title 
      * @param {number} category string is transformed of number
      */
-    addEventListenerInput(imageUrl, title, category) {
+    addEventListenerInput(imageUrl, title) {
         this.addProjetsForm.addEventListener('input', () => {
-            if(imageUrl.value != '' && title.value != '' && category.value != '') {
-                this.btnValide.classList.remove('ok')
+            if(imageUrl.value != '' && title.value != '') {
+                this.imageAndTitleInput = true
+                this.validationInput()
             }
         })
         this.addProjetsForm.addEventListener('input', () => {
-            if(imageUrl.value === '' || title.value === '' || category.value === '') {
-                this.btnValide.classList.add('ok')
+            if(imageUrl.value === '' || title.value === '') {
+                this.imageAndTitleInput = false
+                this.validationInput()
             }
         })
+    }
+
+    validationInput() {
+        // True & false 
+        console.log(this.imageAndTitleInput);
+        console.log(this.choiseCategoryInput);
+        // Conditions 
+        if(this.choiseCategoryInput === true && this.imageAndTitleInput === true) {
+            this.btnValide.classList.remove('ok')
+        }
+        if(this.choiseCategoryInput === false || this.imageAndTitleInput === false) {
+            this.btnValide.classList.add('ok')
+        }
     }
 
     /**
@@ -159,5 +178,9 @@ export default class AddProjet {
 
     closeSelectedCategory() {
         this.ul.classList.add('js-selectCategory-none')
+        this.choiseCategoryInput = true
+        this.validationInput()
+        // let choiseCategoryInputClick = this.choiseCategoryInput
+        // console.log(choiseCategoryInputClick);
     }
 }

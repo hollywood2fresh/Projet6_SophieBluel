@@ -5,20 +5,13 @@ import Modal from "./modal.js";
 import DeleteProjet from "./delete.js";
 import AddProjet from "./add.js";
 
-const categorie = await fetchJSON('http://localhost:5678/api/categories')
 
-try {
-const projets = await fetchJSON('http://localhost:5678/api/works')
 // Filter
-let filtre = new GalleryProjetAndFilter(projets);
-filtre.afficherProjet(projets)
-// Modal
-let modal = new Modal(projets)
-modal.afficherProjet(projets);
-// Delete projects
-let aChanger = new DeleteProjet()
-// Add projects
-let additional = new AddProjet(categorie)
+try {
+    const projets = await fetchJSON('http://localhost:5678/api/works')
+    let filtre = new GalleryProjetAndFilter(projets);
+    filtre.afficherProjet(projets)
+
 
 } catch (error) {
     console.log('tezst');
@@ -35,6 +28,20 @@ let additional = new AddProjet(categorie)
     `
 }
 
+
+// Modal
+const projetsModal = await fetchJSON('http://localhost:5678/api/works')
+let modal = new Modal(projetsModal)
+modal.afficherProjet(projetsModal);
+
+
+// Delete projects
+let aChanger = new DeleteProjet()
+
+
+// Add projects
+const categorie = await fetchJSON('http://localhost:5678/api/categories')
+let additional = new AddProjet(categorie)
 
 
 

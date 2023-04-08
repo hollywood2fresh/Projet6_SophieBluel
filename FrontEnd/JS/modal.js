@@ -24,11 +24,11 @@ export default class Modal {
 
     /**
      * Add all projects in API /works
-     * @param {fetch} projets add projects since API
+     * @param {fetch} projetsModal add projects since API
      */
-    afficherProjet(projets) {
-        for(let i = 0; i < projets.length; i++) {
-            const article = projets[i]
+    afficherProjet(projetsModal) {
+        for(let i = 0; i < projetsModal.length; i++) {
+            const article = projetsModal[i]
     
             const imageWorks = document.createElement('img')
             imageWorks.src = article.imageUrl

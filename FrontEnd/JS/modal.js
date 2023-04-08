@@ -1,17 +1,17 @@
 /**
- * This class provide add modals for delete et add projets 
+ * This class provide to add modals to delete and add projects 
  */
 export default class Modal {
 
     constructor() {
-        // Edit button homepage
+        // Edit button's homepage
         this.editButton = document.querySelector('.button-modif')
         // Selectors first modal
         this.galleryModal = document.querySelector('.js-modal-galerie-photo')
         this.galleryModal = document.querySelector('.js-modal-galerie-photo')
         this.galleryModalClose = document.querySelector('.fa-xmark')
         this.galleryModalStopPropagation = document.querySelector('.js-modal-stop')
-        // Selectors secondes modal
+        // Selectors second modal
         this.addPictureButton = document.querySelector('.js-addPicture')
         this.addPictureModal = document.querySelector('.js-modal-ajout')
         this.addPictureModalClose = document.querySelector('.js-closeModal')
@@ -23,8 +23,8 @@ export default class Modal {
     }
 
     /**
-     * Add all projets in API /works
-     * @param {fetch} projets add projets since API
+     * Add all projects in API /works
+     * @param {fetch} projets add projects since API
      */
     afficherProjet(projets) {
         for(let i = 0; i < projets.length; i++) {
@@ -53,7 +53,7 @@ export default class Modal {
     }
 
     /**
-     * What are press on the edit button, call the openGalleryModal Function 
+     * When we press edit button, call openGalleryModal Function 
      */
     pressButton() {
         this.editButton.addEventListener('click', (event) => {
@@ -62,7 +62,7 @@ export default class Modal {
     }
 
     /**
-     * What are press on the Add picture button, call the openAddPictureModal Function 
+     * When we press Add picture button, call openAddPictureModal Function 
      */
     pressAddPicture() {
         this.addPictureButton.addEventListener('click', (event) => {
@@ -75,7 +75,7 @@ export default class Modal {
     }
 
     /**
-     * Provide open modal 'Galerie photo'
+     * Provide to open modal 'Galerie photo'
      */
     openGalleryModal(event) {
         event.preventDefault()
@@ -93,7 +93,7 @@ export default class Modal {
     }
 
     /**
-     * Provide close modal 'Galerie photo'
+     * Provide to close modal 'Galerie photo'
      */
     closeGalleryModal(event) {
         event.preventDefault()
@@ -111,9 +111,9 @@ export default class Modal {
     }
 
     /**
-     * Provide open modal 'Ajout photo'
+     * Provide to open modal 'Ajout photo'
      * 
-     * But if click on arrow, return in modal 'Galerie photo'
+     * But if we click on arrow, return in modal 'Galerie photo'
      */
     openAddPictureModal(event) {
         event.preventDefault()
@@ -138,7 +138,7 @@ export default class Modal {
     }
 
     /**
-     * Provide close modal 'Ajout photo'
+     * Provide to close modal 'Ajout photo'
      */
     closeAddPictureModal(event) {
         event.preventDefault()

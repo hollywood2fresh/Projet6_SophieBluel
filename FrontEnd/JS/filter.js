@@ -1,5 +1,5 @@
 /**
- * This class add all projets in gallery and add filter 
+ * This class add all projects in gallery and add filters
  */
 export default class GalleryProjetAndFilter {
 
@@ -13,8 +13,8 @@ export default class GalleryProjetAndFilter {
     }
 
     /**
-     * Add all projets in API /works
-     * @param {fetch} projets add projets since API
+     * Add all projects in API /works
+     * @param {fetch} projets add projets since API ???
      */
     afficherProjet(projets) {
         for(let i = 0; i < projets.length; i++) {
@@ -39,7 +39,7 @@ export default class GalleryProjetAndFilter {
     }
 
     /**
-     * Change color of buttons filters whats are seleted 
+     * Change color of buttons's filters when we selet it
      */
     selectButton() {
         let listBtn = document.querySelectorAll('.btn-filter button')
@@ -53,7 +53,7 @@ export default class GalleryProjetAndFilter {
     }
 
     /**
-     * Filter All projets 
+     * Filter All projects 
      */
     allFilter() {
         const boutonFiltrerTous = document.querySelector(".btn-filter-tous")
@@ -68,7 +68,7 @@ export default class GalleryProjetAndFilter {
     }
 
     /**
-     * Filter projets had Objets category 
+     * Filter projects of Objets's category 
      */
     objectFilter() {
         const boutonFiltrerObjets = document.querySelector(".btn-filter-objets")
@@ -84,7 +84,7 @@ export default class GalleryProjetAndFilter {
     }
 
     /**
-     * Filter projets had Appartements category 
+     * Filter projects of Appartements's category 
      */
     appartementFilter() {
         const boutonFiltrerAppartements = document.querySelector(".btn-filter-appartements")
@@ -100,7 +100,7 @@ export default class GalleryProjetAndFilter {
     }
 
     /**
-     * Filter projets had Hotels & Restaurantes category 
+     * Filter projects of Hotels & Restaurantes's category 
      */
     hotelRestaurantFilter() {
         const boutonFiltrerHotelsRestaurants = document.querySelector(".btn-filter-hotels-et-restaurants")

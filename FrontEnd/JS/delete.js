@@ -7,7 +7,7 @@ export default class DeleteProjet {
     }
 
     /**
-     * Provide select id in terms of project id 
+     * Select the id according to the project id
      */
     seekId() {
         this.buttons.forEach((button) => 
@@ -19,8 +19,8 @@ export default class DeleteProjet {
     }
 
 /**
- * Provide delete projets of API
- * @param {number} id id projet
+ *  Delete project of API
+ * @param {number} id id project
  */
     async deleteProjet(id) {
         const response = await fetch(`http://localhost:5678/api/works/${id}`, {

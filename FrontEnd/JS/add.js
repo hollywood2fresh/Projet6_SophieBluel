@@ -11,10 +11,10 @@ export default class AddProjet {
         this.labelTitle = document.getElementById('label-title')
         this.labelCategory = document.getElementById('label-category')
         this.btnValide = document.querySelector('.ok')
-        // Création balises error 
+        // Create error tags 
         this.errorChampsObligatoire = document.createElement('p')
         this.addProjetsForm.append(this.errorChampsObligatoire)
-        // Création choix catégorie 
+        // Create choise of categories  
         this.sortDown = document.querySelector('.fa-sort-down')
         this.ul = document.createElement('ul')
 
@@ -26,7 +26,7 @@ export default class AddProjet {
     }
 
     /**
-     * Provide to collect data form and call addProjet function 
+     * Collect data form and call addProject function 
      */
     addEventListener() {
         this.addProjetsForm.addEventListener('submit', (event) => {
@@ -50,13 +50,13 @@ export default class AddProjet {
     }
 
     /**
-     * Take data to form for create a new projet
+     * Take form's data to create the new project
      * 
      * @param {files} image 
      * @param {string} title 
-     * @param {number} category string is transform of number 
+     * @param {number} category string is transformed of number 
      * 
-     * he's possible send data only if all fields are filled
+     * It's possible to send data only if all fields are filled
      */
     async addProjets(image, title, category) {
         let myHeaders = new Headers();
@@ -85,11 +85,11 @@ export default class AddProjet {
     }
 
     /**
-     * Provide know if all fields are filled
+     * Provide to know if all fields are filled
      * 
      * @param {files} imageUrl 
      * @param {string} title 
-     * @param {number} category string is transform of number
+     * @param {number} category string is transformed of number
      */
     addEventListenerInput(imageUrl, title, category) {
         this.addProjetsForm.addEventListener('input', () => {
@@ -105,7 +105,7 @@ export default class AddProjet {
     }
 
     /**
-     * Create one li per category for the choise category
+     * Create one tag li per category to choise category
      */
     selectedCategory() {
         this.addProjetsForm.append(this.ul)
@@ -122,7 +122,7 @@ export default class AddProjet {
     }
 
     /**
-     * When click in arrow, call openSelectedCategory function 
+     * When you click in arrow, call openSelectedCategory function 
      */
     pressSortDown() {
         this.sortDown.addEventListener('click', (event) => {
@@ -136,7 +136,7 @@ export default class AddProjet {
     }
 
     /**
-     * Privide to take choise in input 
+     * Provide to take choise in input ???
      */
     clickSelectedCategoru() {
         const liObjets = document.querySelector('.js-selectCategory0')

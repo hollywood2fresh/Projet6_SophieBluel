@@ -15,9 +15,9 @@ filtre.afficherProjet(projets)
 // Modal
 let modal = new Modal(projets)
 modal.afficherProjet(projets);
-// Delete projets
+// Delete projects
 let aChanger = new DeleteProjet()
-// Add projets
+// Add projects
 let additional = new AddProjet(categorie)
 
 } catch (error) {

@@ -9,7 +9,7 @@ export default class Login {
         this.errorEmail = document.getElementById('email')
         this.errorLabelPassword = document.getElementById('label-password')
         this.errorPassword = document.getElementById('password')
-        // Création balises error 
+        // Create tags's error 
         this.errorChampsObligatoire = document.createElement('p')
         this.errorIncorrecte = document.createElement('p')
 
@@ -17,7 +17,7 @@ export default class Login {
     }
 
     /**
-     * When click on submit button, take datas of form and send in the login function
+     * When we click on submit button, it take data of form and send it in the login function
      */
     addEventListener() {
         this.loginForm.addEventListener('submit', (event) => {
@@ -29,13 +29,13 @@ export default class Login {
     }
 
     /**
-     * Send datas in API and if reponse it's ok, give token 
+     * Send data in API and if the response is ok, give token 
      * 
      * @param {string} email 
      * @param {string} motDePasse 
      * 
-     * If datas is undefined -> error message 
-     * BUT datas ok -> token is save in localStorage
+     * If data is undefined -> error message 
+     * BUT if data ok -> token is saved in localStorage
      */
     async login(email, motDePasse) {
         let user = {
@@ -52,7 +52,7 @@ export default class Login {
           
         let result = await response.json()
 
-        // Ajout au formulaire 
+        // Add to form
         this.loginForm.append(this.errorChampsObligatoire)
         this.loginForm.prepend(this.errorIncorrecte)
 

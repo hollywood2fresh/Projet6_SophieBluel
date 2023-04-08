@@ -93,7 +93,6 @@ export default class AddProjet {
      * 
      * @param {files} imageUrl 
      * @param {string} title 
-     * @param {number} category string is transformed of number
      */
     addEventListenerInput(imageUrl, title) {
         this.addProjetsForm.addEventListener('input', () => {
@@ -110,6 +109,9 @@ export default class AddProjet {
         })
     }
 
+    /**
+     * Provide to know if all fields are filled - TRUE or FALSE 
+     */
     validationInput() {
         // True & false 
         console.log(this.imageAndTitleInput);

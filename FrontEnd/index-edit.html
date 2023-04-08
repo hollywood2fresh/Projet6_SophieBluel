@@ -91,14 +91,15 @@ modale-display-none
 	</div>
 </aside>
 
-<aside class="js-modal-ajout modale-display-none" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="title-modale">
+<aside class="js-modal-ajout" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="title-modale">
 	<div class="modale-wrapper js-modal-ajout-stop">
 		<i class="fa-solid fa-arrow-left"></i>
 		<i class="fa-solid fa-xmark js-closeModal"></i>
 		<h1 id="#title-modale">Ajout photo</h1>
 		<form class="js-My-form">
 			<div class="div-ajout-photo">
-				<label for="imageUrl"><i class="fa-regular fa-image"></i></label>
+				<i class="fa-regular fa-image"></i>
+				<label for="imageUrl" class="file">+ Ajouter photo</label>
 				<input type="file" id="imageUrl" name="image"></input>
 				<span class="taille-max">jpg, png : 4mo max</span>
 			</div>

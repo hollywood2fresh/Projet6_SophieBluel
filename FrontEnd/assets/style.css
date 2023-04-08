@@ -392,13 +392,18 @@ aside {
     align-items: center;
 }
 
-.fa-image {
+.div-ajout-photo .fa-image {
     color: #B9C5CC;
     font-size: 46px;
     margin: 28px auto 21px;
+
 }
 
-#file {
+#imageUrl {
+	display: none;
+}
+
+.file {
     border: none;
     background-color: #CBD6DC;
     color: #306685;
@@ -406,7 +411,11 @@ aside {
     width: 173px;
     height: 36px;
     border-radius: 58px;
-	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 230px;
 }
 .div-ajout-photo .taille-max {
     border: none;

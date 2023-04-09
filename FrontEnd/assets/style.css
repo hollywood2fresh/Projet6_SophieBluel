@@ -312,7 +312,7 @@ aside {
     left: 21px;
 }
 
-.modale-wrapper h1 {
+.modale-wrapper h3 {
     margin: 60px auto 46px;
     font-family: 'Work Sans';
     font-size: 26px;
@@ -346,7 +346,7 @@ aside {
     color: #D65353;
     font-family: 'Syne';
     font-size: 14px;
-    font-weight: 400px;
+    font-weight: 400;
     position: absolute;
     top: 666px;
 }

@@ -45,6 +45,27 @@ let additional = new AddProjet(categorie)
 
 
 
+// const input = document.getElementById('category')
+// const image = document.querySelector('.div-ajout-photo')
+// const selectImageForm = document.createElement('img')
+// selectImageForm.classList.add('js-selectImageForm')
+// image.append(selectImageForm.result)
+
+
+
+// function readURL(input) {
+
+//         let reader = new FileReader()
+
+//         reader.onload = function (e) {
+
+//             selectImageForm.src = e.target.result
+//         }
+//         reader.readAsDataURL(input.files[0])
+
+// }
+
+// readURL()
 
 
 

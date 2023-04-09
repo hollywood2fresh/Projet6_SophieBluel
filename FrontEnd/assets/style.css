@@ -403,7 +403,23 @@ aside {
 	display: none;
 }
 
-.file {
+.file-none {
+    border: none;
+    background-color: transparent;
+    color: transparent;
+    font-family: 'Work Sans';
+    width: 173px;
+    height: 150px;
+    border-radius: 58px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 140px;
+	z-index: 4;
+}
+
+.js-file {
     border: none;
     background-color: #CBD6DC;
     color: #306685;
@@ -417,6 +433,7 @@ aside {
 	position: absolute;
 	top: 230px;
 }
+
 .div-ajout-photo .taille-max {
     border: none;
     font-family: 'Work Sans';
@@ -534,4 +551,16 @@ aside {
 .error404 p:nth-child(3) {
 	color: rgba(197, 4, 4, 0.669);
 
+}
+
+.js-selectImageForm {
+	width: 129px;
+	height: 169px;
+	position: absolute;
+	top: 132px;
+	z-index: 1;
+}
+
+.js-selectImageForm-none {
+	display: none;
 }

@@ -91,7 +91,7 @@ modale-display-none
 	</div>
 </aside>
 
-<aside class="js-modal-ajout" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="title-modale">
+<aside class="js-modal-ajout modale-display-none" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="title-modale">
 	<div class="modale-wrapper js-modal-ajout-stop">
 		<i class="fa-solid fa-arrow-left"></i>
 		<i class="fa-solid fa-xmark js-closeModal"></i>
@@ -99,8 +99,9 @@ modale-display-none
 		<form class="js-My-form">
 			<div class="div-ajout-photo">
 				<i class="fa-regular fa-image"></i>
-				<label for="imageUrl" class="file">+ Ajouter photo</label>
-				<input type="file" id="imageUrl" name="image"></input>
+				<label for="imageUrl" class="file js-file">+ Ajouter photo</label>
+				<input type="file" id="imageUrl" name="image" onchange="readURL(this)"></input>
+				<img class="js-selectImageForm js-selectImageForm-none" src="https://placehold.it/180" alt="your image">
 				<span class="taille-max">jpg, png : 4mo max</span>
 			</div>
 			<div class="formulaire">
@@ -123,5 +124,6 @@ modale-display-none
 	</nav>
 </footer>
 <script src="JS/main.js" type="module"></script>
+<script src="./JS/previewInput.js"></script>
 </body>
 </html>

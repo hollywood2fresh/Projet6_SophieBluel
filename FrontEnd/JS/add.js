@@ -27,6 +27,7 @@ export default class AddProjet {
         this.pressSortDown()
         this.clickSelectedCategoru()
         this.validationInput()
+        // this.showImageselect()
     }
 
     /**
@@ -113,10 +114,6 @@ export default class AddProjet {
      * Provide to know if all fields are filled - TRUE or FALSE 
      */
     validationInput() {
-        // True & false 
-        console.log(this.imageAndTitleInput);
-        console.log(this.choiseCategoryInput);
-        // Conditions 
         if(this.choiseCategoryInput === true && this.imageAndTitleInput === true) {
             this.btnValide.classList.remove('ok')
         }
@@ -182,7 +179,32 @@ export default class AddProjet {
         this.ul.classList.add('js-selectCategory-none')
         this.choiseCategoryInput = true
         this.validationInput()
-        // let choiseCategoryInputClick = this.choiseCategoryInput
-        // console.log(choiseCategoryInputClick);
     }
+
+    // async showImageselect() {
+
+
+    //     this.addProjetsForm.addEventListener('input', () => {
+    //         // lire l'image sélectionnée
+    //         let reader = new FileReader()
+    //         reader.readAsDataURL(this.baliseImage.files[0])
+    //         console.log(reader);
+    //         // Après la sélection
+    //         const image = document.querySelector('.div-ajout-photo')
+    //         const selectImageForm = document.createElement('img')
+    //         selectImageForm.classList.add('js-selectImageForm')
+    //         image.append(selectImageForm.result)
+    //     })
+    // }
+
+    // previewPicture(e, image) {
+    //     const [picture] = e.files
+    //     if(picture) {
+    //         let reader = new FileReader()
+    //         reader.onload = function(e) {
+    //             image.src = e.target.result
+    //         }
+    //         reader.readAsDataURL(picture)
+    //     }
+    // }
 }

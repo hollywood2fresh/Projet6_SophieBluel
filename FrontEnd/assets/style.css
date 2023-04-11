@@ -466,11 +466,17 @@ aside {
 
 .fa-sort-down {
 	color: #000;
+	/* background-color: crimson; */
+	width: 410px;
+	height: 47px;
 	font-size: 20px;
+	padding-top: 15px;
+	padding-right: 15px;
+	text-align: end;
 
 	position: absolute;
-	bottom: 233px;
-	right: 130px;
+	bottom: 212px;
+	right: 112px;
 }
 
 .js-selectCategory {

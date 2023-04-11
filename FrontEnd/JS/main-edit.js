@@ -1,6 +1,10 @@
 import { fetchJSON } from "./function/api.js";
 
 import GalleryProjetAndFilter from "./class/filter.js";
+import Modal from "./class/modal.js";
+import DeleteProjet from "./class/delete.js";
+import AddProjet from "./class/add.js";
+
 
 // Filter
 try {
@@ -20,3 +24,18 @@ try {
     <p>Impossible de charger la galerie</p>
     `
 }
+
+
+// Modal
+const projetsModal = await fetchJSON('http://localhost:5678/api/works')
+let modal = new Modal(projetsModal)
+modal.afficherProjet(projetsModal);
+
+
+// Delete projects
+new DeleteProjet()
+
+
+// Add projects
+const categorie = await fetchJSON('http://localhost:5678/api/categories')
+new AddProjet(categorie)

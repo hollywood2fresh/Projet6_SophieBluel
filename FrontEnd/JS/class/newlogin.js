@@ -95,5 +95,3 @@ export default class Login {
         }
     }
 }
-
-let login = new Login()

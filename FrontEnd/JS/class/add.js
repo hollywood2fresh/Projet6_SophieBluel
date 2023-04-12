@@ -27,7 +27,6 @@ export default class AddProjet {
         this.pressSortDown()
         this.clickSelectedCategoru()
         this.validationInput()
-        // this.showImageselect()
     }
 
     /**
@@ -140,7 +139,7 @@ export default class AddProjet {
     }
 
     /**
-     * When you click in arrow, call openSelectedCategory function 
+     * When you click in input, call openSelectedCategory function 
      */
     pressSortDown() {
         this.sortDown.addEventListener('click', (event) => {
@@ -180,31 +179,4 @@ export default class AddProjet {
         this.choiseCategoryInput = true
         this.validationInput()
     }
-
-    // async showImageselect() {
-
-
-    //     this.addProjetsForm.addEventListener('input', () => {
-    //         // lire l'image sélectionnée
-    //         let reader = new FileReader()
-    //         reader.readAsDataURL(this.baliseImage.files[0])
-    //         console.log(reader);
-    //         // Après la sélection
-    //         const image = document.querySelector('.div-ajout-photo')
-    //         const selectImageForm = document.createElement('img')
-    //         selectImageForm.classList.add('js-selectImageForm')
-    //         image.append(selectImageForm.result)
-    //     })
-    // }
-
-    // previewPicture(e, image) {
-    //     const [picture] = e.files
-    //     if(picture) {
-    //         let reader = new FileReader()
-    //         reader.onload = function(e) {
-    //             image.src = e.target.result
-    //         }
-    //         reader.readAsDataURL(picture)
-    //     }
-    // }
 }

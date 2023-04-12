@@ -32,6 +32,6 @@ export default class DeleteProjet {
             body: JSON.stringify(this.buttons)
         });
         
-        const data = await response.text()
+        await response.text()
     }
 }

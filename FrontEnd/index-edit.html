@@ -12,17 +12,18 @@
     <script src="https://kit.fontawesome.com/c2ba6ebecd.js" crossorigin="anonymous"></script>
 </head>
 <body>
-	<div class="mode-edition">
+	<div class="aside-mode-edition"></div>
+	<aside class="mode-edition" aria-hidden="false" aria-modal="false">
 		<p><i class="fa-regular fa-pen-to-square"></i>Mode édition</p>
-		<button class="publish-changes">publier les changements</button>
-	</div>
+		<a class="publish-changes" href="./index.html">publier les changements</a>
+	</aside>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 	<nav>
 		<ul>
 			<li>projets</li>
 			<li>contact</li>
-			<li><a href="./login-page.html">login</a></li>
+			<li><a href="./login-page.html">logout</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -81,6 +82,10 @@ modale-display-none
  -->
 
  <aside class="js-modal-galerie-photo modale-display-none" aria-hidden="true" aria-modal="false" aria-labelledby="title-modale">
+	<aside class="mode-edition">
+		<p><i class="fa-regular fa-pen-to-square"></i>Mode édition</p>
+		<button class="publish-changes">publier les changements</button>
+	</aside>
 	<div class="modale-wrapper js-modal-stop">
 		<i class="fa-solid fa-xmark"></i>
 		<h3 id="#title-modale">Galerie photo</h3>

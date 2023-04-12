@@ -91,7 +91,6 @@ export default class Login {
         } else {
             window.location.assign('./index-edit.html')
             localStorage.setItem('token', result.token)
-            localStorage.setItem('userId', result.userId)
         }
     }
 }
